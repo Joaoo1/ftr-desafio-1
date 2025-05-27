@@ -1,0 +1,21 @@
+{
+	"name": "brevly",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"server": "npm run dev --prefix server",
+		"dev": "concurrently \"npm run server\"",
+		"install:server": "cd server && npm install --verbose",
+		"install:all": "npm install && npm run install:server"
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"author": "João Silva",
+	"license": "MIT",
+	"devDependencies": {
+		"concurrently": "^8.2.2",
+		"tsx": "^4.19.4"
+	},
+	"keywords": []
+}
