@@ -13,6 +13,7 @@ import { removeLinkRoute } from "./routes/delete-link";
 import { exportLinksRoute } from "./routes/export-links";
 import { getLinkRoute } from "./routes/get-link";
 import { listLinksRoute } from "./routes/get-links";
+import { incrementLinkAccessCountRoute } from "./routes/increment-link-access-count";
 import { createLinkRoute } from "./routes/insert-link";
 
 const app = fastify();
@@ -56,5 +57,6 @@ app.register(getLinkRoute);
 app.register(listLinksRoute);
 app.register(removeLinkRoute);
 app.register(exportLinksRoute);
+app.register(incrementLinkAccessCountRoute);
 
 export { app };

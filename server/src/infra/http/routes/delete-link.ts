@@ -3,8 +3,8 @@ import { isRight, unwrapEither } from "@/shared/either";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { z } from "zod";
 
-export const removeLinkRoute: FastifyPluginAsyncZod = async (server) => {
-	server.delete(
+export const removeLinkRoute: FastifyPluginAsyncZod = async (app) => {
+	app.delete(
 		"/links",
 		{
 			schema: {

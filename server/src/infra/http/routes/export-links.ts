@@ -3,8 +3,8 @@ import { unwrapEither } from "@/shared/either";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { z } from "zod";
 
-export const exportLinksRoute: FastifyPluginAsyncZod = async (server) => {
-	server.post(
+export const exportLinksRoute: FastifyPluginAsyncZod = async (app) => {
+	app.post(
 		"/links/exports",
 		{
 			schema: {
