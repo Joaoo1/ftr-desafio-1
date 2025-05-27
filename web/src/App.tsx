@@ -1,3 +1,7 @@
 export function App() {
-	return <h1>Hello brevly</h1>;
+	return (
+		<div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+			<h1 className="text-center">Hello brevly</h1>
+		</div>
+	);
 }
