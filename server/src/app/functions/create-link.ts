@@ -6,7 +6,7 @@ import { z } from "zod";
 
 export const createLinkSchema = z.object({
 	originalUrl: z.string().url("URL original deve ser uma URL válida."),
-	shortUrl: z.string().url("URL encurtada deve ser uma URL válida."),
+	shortUrl: z.string().min(3).max(100),
 });
 
 type CreateLinkInput = z.input<typeof createLinkSchema>;

@@ -9,12 +9,12 @@ import {
 	serializerCompiler,
 	validatorCompiler,
 } from "fastify-type-provider-zod";
+import { createLinkRoute } from "./routes/create-link";
 import { removeLinkRoute } from "./routes/delete-link";
 import { exportLinksRoute } from "./routes/export-links";
 import { getLinkRoute } from "./routes/get-link";
-import { listLinksRoute } from "./routes/get-links";
 import { incrementLinkAccessCountRoute } from "./routes/increment-link-access-count";
-import { createLinkRoute } from "./routes/insert-link";
+import { listLinksRoute } from "./routes/list-links";
 
 const app = fastify();
 
