@@ -4,7 +4,9 @@
 	"description": "Desafio Prático da Fase 1 da Pós Tech Developer 360 na FTR.",
 	"main": "index.js",
 	"scripts": {
-		"dev": "tsx watch --env-file .env src/infra/http/server.ts"
+		"dev": "tsx watch --env-file .env src/infra/http/server.ts",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate"
 	},
 	"repository": {
 		"type": "git",

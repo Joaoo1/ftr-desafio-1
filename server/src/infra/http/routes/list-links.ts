@@ -29,7 +29,7 @@ export const listLinksRoute: FastifyPluginAsyncZod = async (app) => {
 
 			if (isRight(result)) {
 				const { links } = unwrapEither(result);
-				return reply.status(201).send({ links });
+				return reply.status(200).send({ links });
 			}
 		},
 	);

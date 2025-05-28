@@ -1,12 +1,16 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import { Router } from "./Router";
 
-export function App() {
-	return (
-		<>
-			<Router />
+const queryClient = new QueryClient();
 
-			<ToastContainer />
-		</>
-	);
+export function App() {
+  return (
+    <main className="h-dvh flex flex-col items-center justify-center">
+      <QueryClientProvider client={queryClient}>
+        <Router />
+        <ToastContainer />
+      </QueryClientProvider>
+    </main>
+  );
 }
