@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import logo from "../assets/Logo.svg";
-import type { Link } from "../interface";
-import { api } from "../services/api";
+import logo from "../../assets/Logo.svg";
+import type { Link } from "../../interface";
+import { api } from "../../services/api";
 import { ListLinks } from "./components/ListLinks";
 import { NewLink } from "./components/NewLink";
 
@@ -9,7 +9,7 @@ interface GetLinksResponse {
   links: Link[];
 }
 
-export function Home() {
+export const Home: React.FC = () => {
   const getLinks = async () => {
     const { data } = await api.get<GetLinksResponse>("/links");
     return data.links;
@@ -36,4 +36,4 @@ export function Home() {
       </div>
     </div>
   );
-}
+};

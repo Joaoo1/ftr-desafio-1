@@ -27,11 +27,6 @@ export async function getLink(
 		return makeLeft(null);
 	}
 
-	await db
-		.update(schema.links)
-		.set({ accessCount: link.accessCount + 1 })
-		.where(eq(schema.links.id, link.id));
-
 	return makeRight({
 		link: {
 			originalUrl: link.originalUrl,

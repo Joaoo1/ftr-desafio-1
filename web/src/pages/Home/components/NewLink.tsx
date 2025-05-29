@@ -3,8 +3,8 @@ import { useMutation } from "@tanstack/react-query";
 import type React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import type { ApiError } from "../../interface";
-import { api } from "../../services/api";
+import type { ApiError } from "../../../interface";
+import { api } from "../../../services/api";
 
 interface FormData {
   originalUrl: string;

@@ -5,8 +5,8 @@ import {
 } from "@phosphor-icons/react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
-import type { ApiError, Link } from "../../interface";
-import { api } from "../../services/api";
+import type { ApiError, Link } from "../../../interface";
+import { api } from "../../../services/api";
 import { LinkItem } from "./LinkItem";
 
 interface ListLinksProps {

@@ -25,8 +25,13 @@ button {
 	@apply h-12;
 }
 
+a,
 button {
-	@apply h-12 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+	@apply cursor-pointer;
+}
+
+button {
+	@apply h-12 disabled:opacity-50 disabled:cursor-not-allowed;
 }
 
 .input-prefix-wrapper:has(input:focus) {

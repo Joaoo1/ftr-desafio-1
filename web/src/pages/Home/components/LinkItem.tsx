@@ -1,10 +1,9 @@
 import { Copy, Trash } from "@phosphor-icons/react";
-import { useMutation } from "@tanstack/react-query";
 import type React from "react";
 import { toast } from "react-toastify";
-import type { Link } from "../../interface";
-import { api } from "../../services/api";
-import { showConfirmModal } from "../../utils/showConfirmModal";
+import type { Link } from "../../../interface";
+import { api } from "../../../services/api";
+import { showConfirmModal } from "../../../utils/showConfirmModal";
 
 interface LinkWidgetProps {
   link: Link;
@@ -15,14 +14,6 @@ interface LinkWidgetProps {
 export const LinkItem: React.FC<LinkWidgetProps> = ({ link, onDelete }) => {
   const fullShortLink = `${window.location.origin}/${link.shortUrl}`;
 
-  const { mutate: incrementAccessCount } = useMutation({
-    mutationKey: ["incrementAccessCount", link.shortUrl],
-    mutationFn: () =>
-      api
-        .patch(`/links/${link.shortUrl}/access`)
-        .catch((err) => console.log(err)),
-  });
-
   const copyShortLink = async () => {
     try {
       await navigator.clipboard.writeText(fullShortLink);
@@ -32,7 +23,7 @@ export const LinkItem: React.FC<LinkWidgetProps> = ({ link, onDelete }) => {
     }
   };
 
-  async function deleteLink() {
+  const deleteLink = async () => {
     showConfirmModal({
       text: `Você tem certeza que deseja deletar o link "${link.shortUrl}"?`,
       onConfirm: async () => {
@@ -51,18 +42,12 @@ export const LinkItem: React.FC<LinkWidgetProps> = ({ link, onDelete }) => {
         }
       },
     });
-  }
-
-  const handleLinkClick = () => {
-    incrementAccessCount();
-    // window.open(fullShortLink, "_blank", "noopener,noreferrer");
   };
 
   return (
     <div className="border-t border-gray-200 p-4.5 flex items-start justify-between gap-1">
       <div className="flex flex-col gap-0">
         <a
-          onMouseDown={handleLinkClick}
           href={fullShortLink}
           target="_blank"
           rel="noopener noreferrer"

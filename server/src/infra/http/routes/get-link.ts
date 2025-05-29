@@ -5,7 +5,7 @@ import { z } from "zod";
 
 export const getLinkRoute: FastifyPluginAsyncZod = async (app) => {
 	app.get(
-		"/:shortUrl",
+		"/links/:shortUrl",
 		{
 			schema: {
 				summary: "Get link",
@@ -32,7 +32,7 @@ export const getLinkRoute: FastifyPluginAsyncZod = async (app) => {
 				return reply.status(200).send({ link });
 			}
 
-			return reply.status(400).send({
+			return reply.status(404).send({
 				message: "Link não encontrado",
 			});
 		},
